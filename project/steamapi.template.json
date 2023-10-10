@@ -1,0 +1,9 @@
+{
+  "url": "http://api.steampowered.com",
+  "interface": "IPlayerService",
+  "method": "GetOwnedGames",
+  "version": "v1",
+
+  "key": "jouw Steam API key",
+  "steam64_id": "jouw Steam 64 ID"
+}
