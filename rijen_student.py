@@ -37,7 +37,7 @@ def meetkundige_rij(start, factor, exponent):
         exponent (int): de exponent van de rij
 
     Returns:
-        array: de rekenkundige rij
+        array: de meetkundige rij
     """
 
 
