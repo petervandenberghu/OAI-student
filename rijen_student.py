@@ -24,7 +24,7 @@ def rekenkundige_rij(start, verschil, lengte):
         lengte (int): de lengte van de rij
 
     Returns:
-        array: de rekenkundige rij
+        list of int: de rekenkundige rij
     """
     
 def meetkundige_rij(start, factor, exponent):
@@ -37,7 +37,7 @@ def meetkundige_rij(start, factor, exponent):
         exponent (int): de exponent van de rij
 
     Returns:
-        array: de meetkundige rij
+        list of int: de meetkundige rij
     """
 
 
