@@ -14,17 +14,6 @@ Let op! Het is niet toegestaan om bestaande modules te importeren en te
         gebruiken, zoals `math` en `statistics`.
 """
 
-def gemiddelde(lst):
-    """
-    Bepaal het gemiddelde van een lijst getallen.
-
-    Args:
-        lst (list): Een lijst met gehele getallen.
-
-    Returns:
-        float: Het gemiddelde van de gegeven getallen.
-    """
-
 
 def mediaan(lst):
     """
@@ -35,6 +24,17 @@ def mediaan(lst):
 
     Returns:
         float: De mediaan van de gegeven getallen.
+    """
+
+def gemiddelde(lst):
+    """
+    Bepaal het gemiddelde van een lijst getallen.
+
+    Args:
+        lst (list): Een lijst met gehele getallen.
+
+    Returns:
+        float: Het gemiddelde van de gegeven getallen.
     """
 
 def freq(lst):
@@ -111,25 +111,6 @@ def __my_assert_args(function, args, expected_output, check_type=True):
         assert output == expected_output, msg
 
 
-def test_gemiddelde():
-    testcases = [
-        (([4, 2, 5, 8, 6],), 5.0),
-        (([1, 3, 2, 4, 6, 2, 4, 2],), 3.0)
-    ]
-
-    for case in testcases:
-        __my_assert_args(gemiddelde, case[0], case[1])
-
-
-def test_gemiddelde_simulated():
-    import random
-    import statistics
-
-    for lst_size in range(1, 11):
-        lst_test = [random.choice(range(5)) for _ in range(lst_size)]
-        __my_assert_args(gemiddelde, (lst_test,), statistics.mean(lst_test), False)
-
-
 def test_mediaan():
     testcases = [
         (([4, 2, 5, 8, 6],), 5.0),
@@ -149,6 +130,25 @@ def test_mediaan_simulated():
     for lst_size in range(1, 11):
         lst_test = [random.choice(range(5)) for _ in range(lst_size)]
         __my_assert_args(mediaan, (lst_test,), statistics.median(lst_test), False)
+
+
+def test_gemiddelde():
+    testcases = [
+        (([4, 2, 5, 8, 6],), 5.0),
+        (([1, 3, 2, 4, 6, 2, 4, 2],), 3.0)
+    ]
+
+    for case in testcases:
+        __my_assert_args(gemiddelde, case[0], case[1])
+
+
+def test_gemiddelde_simulated():
+    import random
+    import statistics
+
+    for lst_size in range(1, 11):
+        lst_test = [random.choice(range(5)) for _ in range(lst_size)]
+        __my_assert_args(gemiddelde, (lst_test,), statistics.mean(lst_test), False)
 
 
 def test_freq():
@@ -190,13 +190,13 @@ def __main():
 
     try:
         print("\x1b[32m")   # Groene tekstkleur
-        test_gemiddelde()
-        test_gemiddelde_simulated()
-        print("Je functie gemiddelde(lst) werkt goed!")
-
         test_mediaan()
         test_mediaan_simulated()
         print("Je functie mediaan(lst) werkt goed!")
+
+        test_gemiddelde()
+        test_gemiddelde_simulated()
+        print("Je functie gemiddelde(lst) werkt goed!")
 
         test_freq()
         print("Je functie freq(lst) werkt goed!")
