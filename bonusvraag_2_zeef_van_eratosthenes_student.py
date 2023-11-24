@@ -17,12 +17,12 @@ Let op! Het is niet toegestaan om bestaande modules te importeren en te
         gebruiken, zoals `math` en `statistics`.
 """
 
-def zeef_van_eratosthenes(number):
+def zeef_van_eratosthenes(getal):
     """
     Vind alle priemgetallen onder een gegeven getal met behulp van de zeef van Eratosthenes (https://nl.wikipedia.org/wiki/Zeef_van_Eratosthenes).
 
     Args:
-        number (int): Het gegeven getal.
+        getal (int): Het gegeven getal.
 
     Returns:
         list of int: Alle gevonden priemgetallen onder het gegeven getal.
