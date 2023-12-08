@@ -101,7 +101,7 @@ def test_k_nearest_neighbors():
         ([[[-1, -2], [-3, -4], [-5, -6]], ["tablet", "tablet", "mobiel"], [[-2, -3], [-4, -5]], 1], ["tablet", "tablet"]),
         ([[[2, -3], [7, -4], [11, -6]], ["vrolijk", "boos", "boos"], [[1, -3], [10, -6]], 1], ['vrolijk', 'boos']),
         ([[[2, 3], [5, -4], [1, 6], [5, 3], [9, -40], [15, -16]], ["goud", "zilver", "brons", "goud", "zilver", "brons"], [[5, -4], [10, -6], [11, -30], [-7, 6]], 1], ['zilver', 'zilver', 'zilver', 'brons']),
-        ([[[2, 3], [5, -4], [1, 6], [5, 3], [9, -40], [15, -16]], ["goud", "zilver", "brons", "goud", "zilver", "brons"], [[2, 3], [10, -6], [11, -30], [-7, 6]], 3], ['goud', 'brons', 'zilver', 'goud']),
+        ([[[2, 3], [5, -4], [1, 6], [5, 3], [9, -40], [15, -16]], ["goud", "zilver", "brons", "goud", "zilver", "brons"], [[2, 3], [11, -30], [-7, 6]], 3], ['goud', 'zilver', 'goud']),
     ]
 
     for case in testcases:
