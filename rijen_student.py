@@ -7,7 +7,7 @@ Oriëntatie op AI
 Oefening: zoeken
 
 (c) 2023 Hogeschool Utrecht,
-Peter van den Berg (petervandenberg@hu.nl)
+Peter van den Berg (peter.vandenberg@hu.nl)
 
 
 Let op! Het is niet toegestaan om bestaande modules te importeren en te
@@ -102,8 +102,10 @@ def test_meetkundige_rij():
 if __name__ == '__main__':
     try:
         print("\x1b[32m")
+
         test_rekenkundige_rij()
         print("Je functie rekenkundige_rij() werkt goed!")
+
         test_meetkundige_rij()
         print("Je functie meetkundige_rij() werkt goed!")
 

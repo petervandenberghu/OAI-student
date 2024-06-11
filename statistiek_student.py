@@ -4,46 +4,49 @@
 """
 Oriëntatie op AI
 
-Oefening: getallen
+Oefening: statistiek
 
-(c) 2023 Hogeschool Utrecht,
-Peter van den Berg (peter.vandenberg@hu.nl)
+(c) 2019 Hogeschool Utrecht,
 Tijmen Muller (tijmen.muller@hu.nl)
 
+Werk onderstaande functies uit. Elke functie krijgt een niet-lege en
+ongesorteerde lijst *lst* met gehele getallen (int) als argument.
+
+Je kunt je functies testen met het gegeven raamwerk door het bestand
+uit te voeren (of met behulp van `pytest`, als je weet hoe dat werkt).
+Lever je werk in op Canvas als alle tests slagen.
 
 Let op! Het is niet toegestaan om bestaande modules te importeren en te
         gebruiken, zoals `math` en `statistics`.
 """
 
 
-def floor(real):
+def median(lst):
     """
-    Bepaal het grootste gehele getal (int), dat kleiner dan of gelijk is aan het gegeven reeel getal (float).
+    Bepaal de mediaan van een lijst getallen.
 
     Args:
-        real (float): Een reeel getal.
+        lst (list): Een lijst met gehele getallen.
 
     Returns:
-        int: Het grootste gehele getal (int), dat kleiner dan of gelijk is aan het gegeven reeel getal.
+        float: De mediaan van de gegeven getallen.
     """
-    return 0
+    return
 
 
-def rekenkundige_rij(start, verschil, lengte):
+
+
+def rnge(lst):
     """
-    Berekent een rekenkundige rij (an = a0 + n · c) gegeven een startgetal, een verschil en een lengte.
+    Bepaal het bereik van een lijst getallen.
 
     Args:
-        start (int): Het getal waar de rij mee begint
-        verschil (int): de stapgrootte van de rij
-        lengte (int): de lengte van de rij
+        lst (list): Een lijst met gehele getallen.
 
     Returns:
-        list of int: de rekenkundige rij
+        int: Het bereik van de gegeven getallen.
     """
-
-    rij = []
-    return rij
+    return
 
 
 """
@@ -51,12 +54,12 @@ def rekenkundige_rij(start, verschil, lengte):
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
+import os
 
 
 def __my_assert_args(function, args, expected_output, check_type=True):
     """
     Controleer of gegeven functie met gegeven argumenten het verwachte resultaat oplevert.
-
     Optioneel wordt ook het return-type gecontroleerd.
     """
     argstr = str(args).replace(',)', ')')
@@ -76,47 +79,53 @@ def __my_assert_args(function, args, expected_output, check_type=True):
         assert output == expected_output, msg
 
 
-def test_floor():
+def test_rnge():
     testcases = [
-        ((1.05,), 1),
-        ((1.95,), 1),
-        ((-1.05,), -2),
-        ((-1.95,), -2),
-        ((0.05,), 0),
-        ((-0.05,), -1),
-        ((0.0, ), 0),
-        ((1.0, ), 1),
-        ((-1.0, ), -1)
+        (([4, 2, 5, 8, 6],), 6),
+        (([1, 3, 2, 4, 6, 2, 4, 2],), 5)
     ]
 
     for case in testcases:
-        __my_assert_args(floor, case[0], case[1])
+        __my_assert_args(rnge, case[0], case[1])
 
 
-def test_rekenkundige_rij():
+def test_median():
     testcases = [
-        ((1, 2, 3), [1, 3, 5]),
-        ((3, 4, 5), [3, 7, 11, 15, 19]),
-        ((3, 5, 7), [3, 8, 13, 18, 23, 28, 33]),
-        ((5, 2, 5), [5, 7, 9, 11, 13]),
-        ((5, 3, 5), [5, 8, 11, 14, 17]),
-        ((10, 10, 10), [10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+        (([4, 2, 5, 8, 6],), 5.0),
+        (([1, 3, 4, 6, 4, 2],), 3.5),
+        (([1, 3, 4, 6, 2, 4, 2],), 3.0),
+        (([1, 3, 2, 4, 6, 2, 4, 2],), 2.5)
     ]
 
     for case in testcases:
-        __my_assert_args(rekenkundige_rij, case[0], case[1])
-    return 1
+        __my_assert_args(median, case[0], case[1])
+
+
+def test_median_simulated():
+    import random
+    import statistics
+
+    for lst_size in range(1, 11):
+        lst_test = [random.choice(range(5)) for _ in range(lst_size)]
+        __my_assert_args(median, (lst_test,), statistics.median(lst_test), False)
 
 
 def __main():
+    """ Test alle functies. """
+    # Noodzakelijk voor gekleurde tekst binnen een Windows terminal
+    os.system("")
+
     try:
-        print("\x1b[32m")
+        print("\x1b[32m")   # Groene tekstkleur
 
-        test_floor()
-        print("Je functie floor() werkt goed!")
+        test_median()
+        test_median_simulated()
+        print("Je functie median(lst) werkt goed!")
 
-        test_rekenkundige_rij()
-        print("Je functie rekenkundige_rij() werkt goed!")
+        test_rnge()
+        print("Je functie rnge(lst) werkt goed!")
+
+        print("\nGefeliciteerd, alles lijkt te werken!")
 
     except AssertionError as ae:
         print("\x1b[31m")   # Rode tekstkleur
@@ -125,7 +134,8 @@ def __main():
             raise ae
         else:
             print(ae)
-        print("\x1b[0m")    # Reset tekstkleur
+
+    print("\x1b[0m")    # Reset tekstkleur
 
 
 if __name__ == '__main__':

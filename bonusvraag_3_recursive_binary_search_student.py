@@ -4,7 +4,9 @@
 """
 Oriëntatie op AI
 
-(c) 2019 Hogeschool Utrecht,
+Bonusvraag: binary search recursief
+
+(c) 2019 Hogeschool Utrecht
 Tijmen Muller (tijmen.muller@hu.nl)
 
 Opdracht: werk onderstaande functie uit.
@@ -40,8 +42,8 @@ def recursive_binary_search(lst, target):
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
-
 import random
+
 
 def test_recursive_binary_search():
     for _ in range(10):
@@ -55,7 +57,8 @@ def test_recursive_binary_search():
             f"Fout: recursive_binary_search({lst_test}, {target}) geeft {outcome} in plaats van {found}"
         assert lst_copy == lst_test, "Fout: recursive_binary_search(lst, target) verandert de inhoud van lijst lst"
 
-if __name__ == '__main__':
+
+def __main():
     try:
         print("\x1b[32m")
         test_recursive_binary_search()
@@ -69,3 +72,7 @@ if __name__ == '__main__':
         else:
             print(ae)
         print("\x1b[0m")  # Reset tekstkleur
+
+
+if __name__ == '__main__':
+    __main()

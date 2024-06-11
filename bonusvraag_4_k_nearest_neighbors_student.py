@@ -4,7 +4,9 @@
 """
 Oriëntatie op AI
 
-(c) 2023 Hogeschool Utrecht,
+Bonusvraag: k-Nearest Neighbors
+
+(c) 2023 Hogeschool Utrecht
 Peter van den Berg (petervandenberg@hu.nl)
 
 Opdracht: werk onderstaande functies uit.
@@ -25,23 +27,26 @@ def euclidean_distance(x1, x2):
     Returns:
         float: De berekende euclidische afstand.
     """
+    distance = 0.0
+    return distance
 
-def k_nearest_neighbors(X_train, y_train, X_test, k=3):
+
+def k_nearest_neighbors(x_train, y_train, x_test, k=3):
     """
-    Voorspel de labels van datapunten uit X_test op basis van de labels (y_train) van de k dichtstbijzijnde datapunten uit X_train met het 
-    K-nearest neighbors algoritme (https://medium.com/swlh/k-nearest-neighbor-ca2593d7a3c4).
+    Voorspel de labels van datapunten uit x_test op basis van de labels (y_train)
+    van de k dichtstbijzijnde datapunten uit x_train met het K-nearest neighbors algoritme
+    (zie https://medium.com/swlh/k-nearest-neighbor-ca2593d7a3c4).
 
     Args:
-        X_train (list of list of int): een lijst met datapunten waarvan het label bekend is.
+        x_train (list of list of int): een lijst met datapunten waarvan het label bekend is.
         y_train (list of int): een lijst met labels die bij bovenstaande datapunten horen.
-        X_test (list of list of int): een lijst met datapunten waarvan de labels voorspeld moeten worden.
-        k (int): het aantal dichtstbijzijnde datapunten uit X_train dat gebruikt wordt voor het voorspellen van het label (standaard: 3).
+        x_test (list of list of int): een lijst met datapunten waarvan de labels voorspeld moeten worden.
+        k (int): het aantal datapunten uit x_train dat gebruikt wordt voor het voorspellen van het label (standaard 3).
 
     Returns:
         list of string: De voorspelde labels voor de datapunten uit X_test.
     """
     predictions = []
-
 
     return predictions
 
@@ -80,8 +85,8 @@ def __my_assert_args(function, args, expected_output, check_type=True):
     else:
         assert output == expected_output, msg
 
-def test_euclidean_distance():
 
+def test_euclidean_distance():
     testcases = [
         (([1, 2, 3], [4, 5, 6]), 5.1961524),
         (([0, 0, 0], [0, 0, 0]), 0.0),
@@ -98,10 +103,21 @@ def test_euclidean_distance():
 def test_k_nearest_neighbors():
     testcases = [
         ([[[1, 2], [3, 4], [5, 6]], ["appel", "peer", "appel"], [[2, 3]], 2], ["appel"]),
-        ([[[-1, -2], [-3, -4], [-5, -6]], ["tablet", "tablet", "mobiel"], [[-2, -3], [-4, -5]], 1], ["tablet", "tablet"]),
+        ([[[-1, -2], [-3, -4], [-5, -6]],
+          ["tablet", "tablet", "mobiel"],
+          [[-2, -3], [-4, -5]], 1],
+         ["tablet", "tablet"]),
         ([[[2, -3], [7, -4], [11, -6]], ["vrolijk", "boos", "boos"], [[1, -3], [10, -6]], 1], ['vrolijk', 'boos']),
-        ([[[2, 3], [5, -4], [1, 6], [5, 3], [9, -40], [15, -16]], ["goud", "zilver", "brons", "goud", "zilver", "brons"], [[5, -4], [10, -6], [11, -30], [-7, 6]], 1], ['zilver', 'zilver', 'zilver', 'brons']),
-        ([[[2, 3], [5, -4], [1, 6], [5, 3], [9, -40], [15, -16]], ["goud", "zilver", "brons", "goud", "zilver", "brons"], [[2, 3], [11, -30], [-7, 6]], 3], ['goud', 'zilver', 'goud']),
+        ([
+             [[2, 3], [5, -4], [1, 6], [5, 3], [9, -40], [15, -16]],
+             ["goud", "zilver", "brons", "goud", "zilver", "brons"],
+             [[5, -4], [10, -6], [11, -30], [-7, 6]], 1],
+         ['zilver', 'zilver', 'zilver', 'brons']),
+        ([
+             [[2, 3], [5, -4], [1, 6], [5, 3], [9, -40], [15, -16]],
+             ["goud", "zilver", "brons", "goud", "zilver", "brons"],
+             [[2, 3], [11, -30], [-7, 6]], 3],
+         ['goud', 'zilver', 'goud']),
     ]
 
     for case in testcases:
@@ -109,7 +125,7 @@ def test_k_nearest_neighbors():
     return 1
 
 
-if __name__ == '__main__':
+def __main():
     try:
         print("\x1b[32m")
 
@@ -127,3 +143,7 @@ if __name__ == '__main__':
         else:
             print(ae)
         print("\x1b[0m")    # Reset tekstkleur
+
+
+if __name__ == '__main__':
+    __main()

@@ -13,6 +13,8 @@ Peter van den Berg (petervandenberg@hu.nl)
 Let op! Het is niet toegestaan om bestaande modules te importeren en te
         gebruiken, zoals `math` en `statistics`.
 """
+
+
 def gradient_descent(x, y, num_iterations=1000, learning_rate=0.0001):
     """
     Traint de coefficienten a en b voor het lineaire regressiemodel ŷ = a + b * x met de gradient descent methode.
@@ -20,6 +22,8 @@ def gradient_descent(x, y, num_iterations=1000, learning_rate=0.0001):
     Args:
         x (list): de onafhankelijke waarden van de observaties
         y (list): de afhankelijke waarden van de observaties
+        num_iterations (int): aantal iteraties om te leren
+        learning_rate (float): leerconstante
 
     Returns:
         [float, float]: de berekende coefficienten
@@ -66,7 +70,7 @@ def __my_assert_args(function, args, expected_output, check_type=True):
 
 def test_gradient_descent():    
     data = {
-        'presence': [29 , 36 , 41 , 45 , 48 , 50 , 56 , 61 , 67 , 67 , 67 , 71 , 75 , 79 , 83 , 88 ],
+        'presence': [29, 36, 41, 45, 48, 50, 56, 61, 67, 67, 67, 71, 75, 79, 83, 88],
         'grade': [4.1, 4.3, 4.0, 5.2, 4.8, 4.9, 5.9, 5.2, 4.9, 5.7, 6.2, 6.1, 4.4, 6.1, 6.8, 6.9]
     }
 
@@ -83,7 +87,8 @@ def test_gradient_descent():
         __my_assert_args(gradient_descent, case[0], case[1])
     return 1
 
-if __name__ == '__main__':
+
+def __main():
     try:
         print("\x1b[32m")
 
@@ -98,3 +103,7 @@ if __name__ == '__main__':
         else:
             print(ae)
         print("\x1b[0m")    # Reset tekstkleur
+
+
+if __name__ == '__main__':
+    __main()

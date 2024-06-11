@@ -15,6 +15,15 @@ Let op! Het is niet toegestaan om bestaande modules te importeren en te
 """
 
 
+def faculteit_iteratief(n):
+    """ Bereken n! op iteratieve wijze. """
+    res = 1
+
+    # Voeg de iteratie in: for ...
+
+    return res
+
+
 def faculteit(n):
     """ Bereken n! op recursieve wijze. """
     # Base case
@@ -70,6 +79,12 @@ import math
 import random
 
 
+def test_faculteit_iteratief():
+    for i in range(6):
+        assert faculteit_iteratief(i) == math.factorial(i), \
+            f"Fout: faculteit_iteratief({i}) geeft {faculteit_iteratief(i)} in plaats van {math.factorial(i)}"
+
+
 def test_faculteit():
     for i in range(6):
         assert faculteit(i) == math.factorial(i), \
@@ -109,6 +124,9 @@ if __name__ == '__main__':
     try:
         print("\x1b[32m")
 
+        test_faculteit_iteratief()
+        print("Je functie faculteit_iteratief() doorstaat de tests!")
+
         test_faculteit()
         print("Je functie faculteit() doorstaat de tests!")
 
@@ -123,8 +141,8 @@ if __name__ == '__main__':
 
         print("\x1b[0m")
 
-        x = input("Geef een woord: ")
-        print(f"'{x}' is {'' if palindroom(x) else 'g'}een palindroom!")
+        woord = input("Geef een woord: ")
+        print(f"'{woord}' is {'' if palindroom(woord) else 'g'}een palindroom!")
 
     except AssertionError as ae:
         print("\x1b[31m")   # Rode tekstkleur

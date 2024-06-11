@@ -4,7 +4,10 @@
 """
 Oriëntatie op AI
 
-(c) 2023 Hogeschool Utrecht,
+Bonusvraag: Zeef van Eratosthenes
+
+(c) 2023 Hogeschool Utrecht
+Tijmen Muller (tijmen.muller@hu.nl)
 Peter van den Berg (peter.vandenberg@hu.nl)
 
 Opdracht: werk onderstaande functie uit.
@@ -17,9 +20,11 @@ Let op! Het is niet toegestaan om bestaande modules te importeren en te
         gebruiken, zoals `math` en `statistics`.
 """
 
+
 def zeef_van_eratosthenes(getal):
     """
-    Vind alle priemgetallen onder een gegeven getal met behulp van de zeef van Eratosthenes (https://nl.wikipedia.org/wiki/Zeef_van_Eratosthenes).
+    Vind alle priemgetallen onder een gegeven getal met behulp van de zeef van Eratosthenes
+    (zie https://nl.wikipedia.org/wiki/Zeef_van_Eratosthenes).
 
     Args:
         getal (int): Het gegeven getal.
@@ -27,6 +32,7 @@ def zeef_van_eratosthenes(getal):
     Returns:
         list of int: Alle gevonden priemgetallen onder het gegeven getal.
     """
+    return []
 
 
 """
@@ -76,7 +82,8 @@ def test_find_primes():
         __my_assert_args(zeef_van_eratosthenes, case[0], case[1])
     return 1
 
-if __name__ == '__main__':
+
+def __main():
     try:
         print("\x1b[32m")
         test_find_primes()
@@ -90,3 +97,7 @@ if __name__ == '__main__':
         else:
             print(ae)
         print("\x1b[0m")  # Reset text color
+
+
+if __name__ == '__main__':
+    __main()

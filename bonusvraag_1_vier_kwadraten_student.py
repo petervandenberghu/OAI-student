@@ -4,7 +4,9 @@
 """
 Oriëntatie op AI
 
-(c) 2019 Hogeschool Utrecht,
+Bonusvraag: vier kwadraten
+
+(c) 2019 Hogeschool Utrecht
 Tijmen Muller (tijmen.muller@hu.nl)
 
 Opdracht: werk onderstaande functie uit.
@@ -20,7 +22,9 @@ Let op! Het is niet toegestaan om bestaande modules te importeren en te
 
 def vier_kwadraten(kwadraatsom):
     """
-    Geef een lijst met vier getallen, zodat de som van de kwadraten van die getallen gelijk is aan gegeven kwadraatsom (int).
+    Geef een lijst met vier getallen, zodat de som van de kwadraten van die
+    getallen gelijk is aan gegeven kwadraatsom (int).
+
     Args:
         kwadraatsom (int): De gegeven kwadraatsom.
 
@@ -68,7 +72,7 @@ def test_vier_kwadraten_tijd():
             f"Fout: vier_kwadraten({case}) geeft {lst}, maar {lst[0]}² + {lst[1]}² + {lst[2]}² + {lst[3]}² != {case}"
 
 
-if __name__ == '__main__':
+def __main():
     try:
         print("\x1b[32m")
         test_vier_kwadraten()
@@ -90,3 +94,7 @@ if __name__ == '__main__':
         else:
             print(ae)
         print("\x1b[0m")  # Reset tekstkleur
+
+
+if __name__ == '__main__':
+    __main()
