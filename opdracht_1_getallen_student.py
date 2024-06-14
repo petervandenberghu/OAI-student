@@ -36,17 +36,9 @@ studentnummer = -1
     
 """
 #   TODO: [geef hier je antwoord]
-"""
-2.  Pseudocode meetkundige rij
-
-    Schrijf Nederlandse pseudocode voor een algoritme voor de functie meetkundige_rij() (zie onder).
 
 """
-#   TODO: [geef hier je antwoord]
-
-
-"""
-3. Implementatie ceil
+2. Implementatie ceil
     Implementeer onderstaande functie om naar boven af te ronden.
 
 """
@@ -64,7 +56,7 @@ def ceil(real):
 
 
 """
-4. Implementatie is_even
+3. Implementatie is_even
     Implementeer onderstaande functie om te bepalen of een geheel getal even is.
 
 """
@@ -82,7 +74,7 @@ def is_even(n):
 
 
 """
-5. Implementatie is_odd
+4. Implementatie is_odd
     Implementeer onderstaande functie om te bepalen of een geheel getal oneven is.
 
 """
@@ -100,7 +92,7 @@ def is_odd(n):
 
 
 """
-6. Implementatie nround
+5. Implementatie nround
     Implementeer onderstaande functie om af te ronden naar een geheel getal.
 
 """
@@ -119,28 +111,7 @@ def nround(real):
 
 
 """
-7. Implementatie meetkundige_rij
-    Implementeer onderstaande functie om een meetkundige rij  genereren.
-
-"""
-def meetkundige_rij(start, factor, exponent):
-    """
-    Bereken een meetkundige rij (a_n = a_0 · r^n) gegeven een startgetal, een factor en een exponent.
-
-    Args:
-        start (int): Het getal waar de rij mee begint
-        factor (int): de factor van de rij
-        exponent (int): de exponent van de rij
-
-    Returns:
-        list of int: de meetkundige rij
-    """
-    rij = []
-    return rij
-
-
-"""
-8. Implementatie dec2bin rij
+6. Implementatie dec2bin rij
     Implementeer onderstaande functie om de binaire representatie van een decimaal getal te berekenen.
 
 """
@@ -172,8 +143,7 @@ def dec2bin(n):
 
 
 """
-(Optioneel)
-9. Implementatie sqrt_heron
+7. Implementatie sqrt_heron
     Implementeer onderstaande functie om de vierkantswortel van een getal te berekenen.
 """
 
@@ -196,6 +166,29 @@ def sqrt_heron(n, tolerantie = 0.00000001):
 
     """
     return 0
+
+
+"""
+(Optioneel)
+8. Implementatie meetkundige_rij
+    Implementeer onderstaande functie om een meetkundige rij  genereren.
+
+"""
+def meetkundige_rij(start, factor, exponent):
+    """
+    Bereken een meetkundige rij (a_n = a_0 · r^n) gegeven een startgetal, een factor en een exponent.
+
+    Args:
+        start (int): Het getal waar de rij mee begint
+        factor (int): de factor van de rij
+        exponent (int): de exponent van de rij
+
+    Returns:
+        list of int: de meetkundige rij
+    """
+    rij = []
+    return rij
+
 
 
 """
@@ -293,20 +286,6 @@ def test_is_odd():
     for case in testcases:
         __my_assert_args(is_odd, case[0], case[1])
 
-def test_meetkundige_rij():
-    testcases = [
-        ((1, 2, 3), [1, 2, 4]),
-        ((3, 4, 5), [3, 12, 48, 192, 768]),
-        ((3, 5, 7), [3, 15, 75, 375, 1875, 9375, 46875]),
-        ((5, 2, 5), [5, 10, 20, 40, 80]),
-        ((5, 3, 5), [5, 15, 45, 135, 405]),
-        ((10, 10, 10), [10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000])
-    ]
-
-    for case in testcases:
-        __my_assert_args(meetkundige_rij, case[0], case[1])
-    return 1
-
 def test_dec2bin():
     testcases = [
         ((0,), (0, )),
@@ -335,6 +314,20 @@ def test_sqrt_heron():
     for case in testcases:
         __my_assert_args(sqrt_heron, case[0], case[1])
 
+def test_meetkundige_rij():
+    testcases = [
+        ((1, 2, 3), [1, 2, 4]),
+        ((3, 4, 5), [3, 12, 48, 192, 768]),
+        ((3, 5, 7), [3, 15, 75, 375, 1875, 9375, 46875]),
+        ((5, 2, 5), [5, 10, 20, 40, 80]),
+        ((5, 3, 5), [5, 15, 45, 135, 405]),
+        ((10, 10, 10), [10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000])
+    ]
+
+    for case in testcases:
+        __my_assert_args(meetkundige_rij, case[0], case[1])
+    return 1
+
 
 def __main():
     """ Test alle functies. """
@@ -358,14 +351,14 @@ def __main():
         test_nround()
         print("Je functie nround() werkt goed!")
 
-        test_meetkundige_rij()
-        print("Je functie meetkundige_rij() werkt goed!")
-
         test_dec2bin()
         print("Je functie dec2bin() werkt goed!")
 
         test_sqrt_heron()
         print("Je functie sqrt_heron() werkt goed!")
+
+        test_meetkundige_rij()
+        print("Je functie meetkundige_rij() werkt goed!")
 
     except AssertionError as ae:
         print("\x1b[31m")   # Rode tekstkleur
