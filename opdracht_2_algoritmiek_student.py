@@ -229,7 +229,7 @@ def test_test_linear_search_recursive_recursiveness():
     limit = sys.getrecursionlimit()
     sys.setrecursionlimit(50)
     try:
-        linear_search_recursive(range(100), 100)
+        linear_search_recursive(list(range(100)), 100)
         assert False, "Fout: linear_search_recursive werkt niet recursief"
     except RecursionError:
         return
@@ -244,24 +244,6 @@ def test_my_sort_2():
     assert lst_copy == lst_test, "Fout: my_sort_2(lst) verandert de inhoud van lijst lst"
     assert lst_output == sorted(lst_test), \
         f"Fout: my_sort_2({lst_test}) geeft {lst_output} in plaats van {sorted(lst_test)}"
-
-def test_rekenkundige_rij_element():
-    testcases = [
-        ((0, 0, 0), 0),
-        ((0, 1, 5), 1),
-        ((0, 5, 1), 5),
-        ((1, 1, 5), 6),
-        ((1, 5, 5), 10),
-        ((5, 1, 5), 26),
-        ((5, 5, 1), 10),
-        ((5, 5, 2), 15),
-        ((5, 5, 5), 30),
-    ]
-
-    for case in testcases:
-        __my_assert_args(rekenkundige_rij_element, case[0], case[1])
-    return 1
-
 
 
 def __main():

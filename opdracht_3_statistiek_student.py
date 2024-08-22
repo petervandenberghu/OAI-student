@@ -31,19 +31,21 @@ studentnummer = -1
 1.  Pseudocode derde kwartiel
 
     Schrijf Nederlandse pseudocode voor een algoritme voor de functie q3() (zie onder).
-    Gebruik hoofdletters voor de keywords in je pseudocode.
+    Schrijf je pseudocode keywords met alleen hoofdletters (ALS, VOOR, etc...).
 
 """
 #   TODO: [geef hier je antwoord]
+                                                                                              
 
 """
 2.  Pseudocode frequentie
 
     Schrijf Nederlandse pseudocode voor een algoritme voor de functie freq() (zie onder).
-    Gebruik hoofdletters voor de keywords in je pseudocode.
+    Schrijf je pseudocode keywords met alleen hoofdletters (ALS, VOOR, etc...).
 
 """
 #   TODO: [geef hier je antwoord]
+                                                                                              
 
 
 """
@@ -215,10 +217,8 @@ def rel_cum_freq(lst):
     """
     rel_cum_freqs = dict()
     return rel_cum_freqs
-    return sorted(modi)
 
 
-    return sorted(outlier_lst)
 
 """
 # XXX>
@@ -382,8 +382,15 @@ def test_modes_simulated():
             __my_assert_args(modes, (lst_test,), sorted(statistics.multimode(lst_test)))
 
 
-def test_rel_cum_freq():    
-        assert False, "TODO: test_rel_cum_freq"
+def test_rel_cum_freq(): 
+    testcases = [
+        ((['a', 'b', 'c'],), {'a': 0.3333333333333333, 'b': 0.6666666666666666, 'c': 1.0} ),
+        ((['b', 'd', 'a', 'b'],), {'a': 0.25, 'b': 0.75, 'd': 1.0} ),
+        ((['a', 'a', 'b', 'a', 'a'],), {'a': 0.8, 'b': 1} ),
+    ]
+
+    for case in testcases:
+        __my_assert_args(rel_cum_freq, case[0], case[1])
 
 def __main():
     """ Test alle functies. """
@@ -424,33 +431,6 @@ def __main():
 
         print("\nGefeliciteerd, alles lijkt te werken!")
         print("Lever je werk nu in op Canvas...")
-
-        def hist(freqs):
-            v_min = min(freqs.keys())
-            v_max = max(freqs.keys())
-
-            histo = str()
-            for i in range(v_min, v_max + 1):
-                histo += "{:5d} ".format(i)
-                if i in freqs.keys():
-                    histo += "█" * freqs[i]
-                histo += '\n'
-
-            return histo
-
-        print("\x1b[0m")
-        s = input("Geef een reeks van gehele getallen (gescheiden door een spatie): ")
-        userlst = [int(c) for c in s.split()]
-
-        print("\nHet gemiddelde is {:.2f}".format(mean(userlst)))
-        print("De modi zijn {}".format(modes(userlst)))
-        print("Q1 is {:.2f}".format(q1(userlst)))
-        print("Q3 is {:.2f}".format(q3(userlst)))
-
-        print("De variantie is {:.2f}".format(var(userlst)))
-        print("De standaardafwijking is {:.2f}".format(std(userlst)))
-
-        print("\nHistogram (gekanteld):\n\n" + hist(freq(userlst)))
 
     except AssertionError as ae:
         print("\x1b[31m")   # Rode tekstkleur

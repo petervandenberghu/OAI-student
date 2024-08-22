@@ -33,6 +33,7 @@ studentnummer = -1
 1.  Pseudocode ceil
 
     Schrijf Nederlandse pseudocode voor een algoritme voor de functie ceil() (zie onder).
+    Schrijf je pseudocode keywords met alleen hoofdletters (ALS, VOOR, etc...).
     
 """
 #   TODO: [geef hier je antwoord]
@@ -152,10 +153,12 @@ def sqrt_heron(n, tolerantie = 0.00000001):
     Bepaal de vierkantswortel van een gegeven waarde n met de methode van Heron: https://nl.wikipedia.org/wiki/Methode_van_Heron.
     De methode benadert de vierkantswortel en convergeert naar de daadwerkelijke waarde.
     Implementeer volgens onderstaande pseudocode:
-        Ontvang een positief reëel getal n en reëel getal t.
-        Maak resultaat x gelijk aan n.
-        Zolang het verschil tussen x^2 en n groter is dan t:
-            x = (x + n / x) / 2
+        ONTVANG POSITIEF GETAL n EN GETAL t
+        resultaat = n
+        ZOLANG VERSCHIL resultaat^2 EN n GROTER DAN t:
+            BEREKEN resultaat = (resultaat + n / resultaat) / 2
+
+        GEEF resultaat TERUG
 
     Args:
         n (int): Een positief reëel getal.
@@ -243,22 +246,6 @@ def test_ceil():
     for case in testcases:
         __my_assert_args(ceil, case[0], case[1])
 
-def test_nround():
-    testcases = [
-        ((1.05,), 1),
-        ((1.95,), 2),
-        ((-1.05,), -1),
-        ((-1.95,), -2),
-        ((0.05,), 0),
-        ((-0.05,), 0),
-        ((0.0, ), 0),
-        ((1.0, ), 1),
-        ((-1.0, ), -1)
-    ]
-
-    for case in testcases:
-        __my_assert_args(nround, case[0], case[1])
-
 
 def test_is_even():
     testcases = [
@@ -285,6 +272,22 @@ def test_is_odd():
 
     for case in testcases:
         __my_assert_args(is_odd, case[0], case[1])
+
+def test_nround():
+    testcases = [
+        ((1.05,), 1),
+        ((1.95,), 2),
+        ((-1.05,), -1),
+        ((-1.95,), -2),
+        ((0.05,), 0),
+        ((-0.05,), 0),
+        ((0.0, ), 0),
+        ((1.0, ), 1),
+        ((-1.0, ), -1)
+    ]
+
+    for case in testcases:
+        __my_assert_args(nround, case[0], case[1])
 
 def test_dec2bin():
     testcases = [
